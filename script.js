@@ -5,6 +5,11 @@ const searchTitle = document.querySelector('#searchTitle')
 
 const cardRow = document.querySelector('#cardRow')
 
+const columnA = document.querySelector('#columnA')
+const columnB = document.querySelector('#columnB')
+const columnC = document.querySelector('#columnC')
+
+
 
 
 // creo funzione per estrapolare la stringa dalla barra di ricerca e inserirla nel url della fetch
@@ -24,7 +29,10 @@ function readInputValue() {
 function displayImages(result) {
     searchTitle.innerText = ''
     searchTitle.innerText = inputSearch.value.toUpperCase()
-    cardRow.innerText = ''
+    columnA.innerText = ''
+    columnB.innerText = ''
+    columnC.innerText = ''
+
     const images = result.photos
 
     const image = images.map(result => {
@@ -42,7 +50,10 @@ function displayImages(result) {
 
 
     })
-    cardRow.innerHTML += image.join('')
+    columnA.innerHTML += image.join('')
+    columnB.innerHTML += image.join('')
+    columnC.innerHTML += image.join('')
+
    
 }
 
