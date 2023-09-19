@@ -20,13 +20,13 @@
             class="d-inline-block align-text-top">
           Pexels
         </a>
-        <form class="d-flex col-7" role="search">
+        <form class="d-flex col-7" >
           <input id="inputSearch" class="form-control me-2" type="text" placeholder="Cerca foto gratuite"
             aria-label="Search" id="floatingSearch">
          
 
 
-          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getRandomImages(readInputValue)"><i class="bi bi-search"></i></button>
+          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImages(readInputValue())"><i class="bi bi-search"></i></button>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,33 +73,25 @@
 
     <div class="container">
       <div class="row">
-        <h3 id="searchTitle"></h3>
-      </div>
-      <div class="row">
         <div class="col">
+
+          <h3 id="searchTitle">Discover</h3>
+        </div>
+      </div>
+      <div class="row my-md-5">
+        <div class="col-md-10">
           <button type="button" class="btn btn-dark">Foto</button>
           <button type="button" class="btn btn-dark">Video</button>
           <button type="button" class="btn btn-dark">Utenti</button>
 
         </div>
-        <div class="col">
+        <div class="col-md-2 justify-content-md-center">
           <button type="button" class="btn btn-light"><i class="bi bi-filter"></i>Filtri</button>
 
         </div>
       </div>
       <div id="cardRow" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-
-          <!-- <div class="card">
-            <img src="" class="card-img" alt="">
-            <div class="card-img-overlay d-none">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <p class="card-text"><small>Last updated 3 mins ago</small></p>
-            </div>
-          </div> -->
-        </div>
+       
 
       </div>
     </div>
