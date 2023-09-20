@@ -20,13 +20,14 @@
             class="d-inline-block align-text-top">
           Pexels
         </a>
-        <form class="d-flex col-7" >
+        <form class="d-flex col-7">
           <input id="inputSearch" class="form-control me-2" type="text" placeholder="Cerca foto gratuite"
             aria-label="Search" id="floatingSearch">
-         
 
 
-          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImages(readInputValue())"><i class="bi bi-search"></i></button>
+
+          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImages(readInputValue())"><i
+              class="bi bi-search"></i></button>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,21 +81,52 @@
       </div>
       <div class="row my-md-5">
         <div class="col-md-10">
-          <button type="button" class="btn btn-dark">Foto</button>
-          <button type="button" class="btn btn-dark">Video</button>
-          <button type="button" class="btn btn-dark">Utenti</button>
+          <button type="button" class="btn-filters btn btn-dark">Foto</button>
+          <button type="button" class="btn-filters btn btn-dark">Video</button>
+          <button type="button" class="btn-filters btn btn-dark">Utenti</button>
 
         </div>
         <div class="col-md-2 justify-content-md-center">
-          <button type="button" class="btn btn-light"><i class="bi bi-filter"></i>Filtri</button>
+          <button type="button" class="btn btn-light dropdown-toggle">
+            <i class="bi bi-filter"></i>Filtri </button>
 
+        </div>
+      </div>
+      <div class="row mb-4">
+
+        <div class="col-md-4 btn-group">
+          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            All Orientations </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Horizontal</a></li>
+              <li><a class="dropdown-item" href="#">Vertical</a></li>
+              <li><a class="dropdown-item" href="#">Square</a></li>
+              
+            </ul>
+        </div>
+        <div class="col-md-4 btn-group">
+          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            All Sizes </button>
+          <ul class="dropdown-menu">
+            ...
+          </ul>
+        </div>
+        <div class="col-md-4 btn-group">
+          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Enter Ex Code </button>
+          <ul class="dropdown-menu">
+            ...
+          </ul>
         </div>
       </div>
       <div id="cardRow" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div id="columnA" class="column"></div>
         <div id="columnB" class="column"></div>
         <div id="columnC" class="column"></div>
-       
+
 
       </div>
     </div>

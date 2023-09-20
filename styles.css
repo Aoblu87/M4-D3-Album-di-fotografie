@@ -3,9 +3,25 @@
     flex-grow: 0;
 }
 
-.card{
+.btn-filters{
+    border-radius: 50px;
+}
+
+.card img{
     width: 100%;
     border-radius: 5px;
     height: 100%;
     object-fit: cover;
 }
+ .card {
+    cursor: pointers;
+    border: 0;
+ }
+
+ .row > .column{
+    
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    
+ }

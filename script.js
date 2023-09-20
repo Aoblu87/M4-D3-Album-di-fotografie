@@ -29,14 +29,16 @@ function readInputValue() {
 function displayImages(result) {
     searchTitle.innerText = ''
     searchTitle.innerText = inputSearch.value.toUpperCase()
-    columnA.innerText = ''
-    columnB.innerText = ''
-    columnC.innerText = ''
+    cardRow.innerHTML = ''
+    // columnA.innerText = ''
+    // columnB.innerText = ''
+    // columnC.innerText = ''
 
     const images = result.photos
 
+
     const image = images.map(result => {
-        return /*html*/`<div class="col d-flex">
+        return /*html*/`
 
              <div class="card">
                <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
@@ -46,13 +48,14 @@ function displayImages(result) {
                  <p class="card-text"><small></small></p>
                </div>
              </div>
-           </div>`
+          `
 
 
     })
-    columnA.innerHTML += image.join('')
-    columnB.innerHTML += image.join('')
-    columnC.innerHTML += image.join('')
+    cardRow.innerHTML += image.join('')
+    // columnA.innerHTML += image.join('')
+    // columnB.innerHTML += image.join('')
+    // columnC.innerHTML += image.join('')
 
    
 }
