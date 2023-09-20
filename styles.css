@@ -1,27 +1,39 @@
-.collapse.navbar-collapse{
+.collapse.navbar-collapse {
     flex-basis: 0;
     flex-grow: 0;
 }
 
-.btn-filters{
+.btn-filters {
     border-radius: 50px;
 }
 
-.card img{
+.card img {
     width: 100%;
     border-radius: 5px;
     height: 100%;
     object-fit: cover;
 }
- .card {
-    cursor: pointers;
-    border: 0;
- }
 
- .row > .column{
+.card {
+    cursor: pointer;
+    border: 0;
+}
+
+.row>.column {
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+
+}
+
+.card-img-overlay {
+    visibility: hidden;
     
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    
- }
+}
+
+.card:hover .card-img-overlay {
+    visibility: visible;
+}
+

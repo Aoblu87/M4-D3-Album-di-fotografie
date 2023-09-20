@@ -9,6 +9,62 @@ const columnA = document.querySelector('#columnA')
 const columnB = document.querySelector('#columnB')
 const columnC = document.querySelector('#columnC')
 
+const horizontal = document.querySelector('#horizontal')
+const vertical = document.querySelector('#vertical')
+const square = document.querySelector('#square')
+
+
+window.addEventListener('scroll', getImg())
+
+
+
+let imagesResult = []
+
+horizontal.addEventListener('click', (event) => {
+    columnA.innerText = ''
+    columnB.innerText = ''
+    columnC.innerText = ''
+    searchTitle.innerText = ''
+    searchTitle.innerText = inputSearch.value.toUpperCase()
+    
+
+    const renderedResult = imagesResult.map(result => {
+        return /*html*/`
+
+             <div class="card">
+               <img  src="${result.src.tiny}" class="card-img" alt="${result.alt}">
+               <div class="card-img-overlay d-flex flex-column justify-content-between">
+
+               <div class="col d-flex justify-content-end">
+               <button  type="button" class="btn btn-light mx-1"><i class="bi bi-bookmarks"></i></button>
+               <button  type="button" class="btn btn-light mx-1"><i class="bi bi-suit-heart"></i></button>
+               </div>
+               <div class="col">
+               <h5 class="card-title"></h5>
+               <i class="bi bi-box-arrow-down"></i>
+               </div>
+               </div>
+             </div>
+          `
+
+
+    })
+    for (let i = 0; i < renderedResult.length; i++) {
+        const element = renderedResult[i];
+
+        console.log(i % 3)
+        if (i % 3 === 0)
+            columnA.innerHTML += element
+        else if (i % 3 === 1)
+            columnB.innerHTML += element
+
+        else
+            columnC.innerHTML += element
+
+    }
+    
+    console.log(imagesResult.avg_color)
+})
 
 
 
@@ -18,47 +74,13 @@ function readInputValue() {
     let query = ''
     let input = inputSearch.value
 
-    let url = "https://api.pexels.com/v1/search?query="
+    let url = "https://api.pexels.com/v1/search/?page=1&per_page=50&query="
 
     query = url.concat('', input)
 
     return query
 }
 
-// ---------funzione che mostra i risultati della chiamata----------
-function displayImages(result) {
-    searchTitle.innerText = ''
-    searchTitle.innerText = inputSearch.value.toUpperCase()
-    cardRow.innerHTML = ''
-    // columnA.innerText = ''
-    // columnB.innerText = ''
-    // columnC.innerText = ''
-
-    const images = result.photos
-
-
-    const image = images.map(result => {
-        return /*html*/`
-
-             <div class="card">
-               <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
-               <div class="card-img-overlay d-none">
-                 <h5 class="card-title"></h5>
-                 <p class="card-text"></p>
-                 <p class="card-text"><small></small></p>
-               </div>
-             </div>
-          `
-
-
-    })
-    cardRow.innerHTML += image.join('')
-    // columnA.innerHTML += image.join('')
-    // columnB.innerHTML += image.join('')
-    // columnC.innerHTML += image.join('')
-
-   
-}
 
 
 
@@ -81,8 +103,10 @@ inputSearch.addEventListener("keypress", function (event) {
 
 
 
-// ------------funzione di chiamata API che prende il paramentro dall'input della ricerca
-function getImages(url) {
+
+
+
+function getImg(url) {
 
     fetch(url, {
         headers: {
@@ -90,8 +114,56 @@ function getImages(url) {
         }
     })
         .then(response => response.json())
-        .then(displayImages)
+        .then((result) => {
+            searchTitle.innerText = ''
+            searchTitle.innerText = inputSearch.value.toUpperCase()
+            columnA.innerText = ''
+            columnB.innerText = ''
+            columnC.innerText = ''
+            
+
+
+            imagesResult = result.photos
+
+
+            const renderedResult = imagesResult.map(result => {
+                return /*html*/`
+        
+                     <div class="card">
+                       <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
+                       <div class="card-img-overlay d-flex flex-column justify-content-between">
+                       <div class="row">
+                         <div class="col d-flex justify-content-end">
+                            <button  type="button" class="btn btn-light mx-1"><i class="bi bi-bookmarks"></i></button>
+                            <button  type="button" class="btn btn-light mx-1"><i class="bi bi-suit-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col d-flex justify-content-between">
+                            <h5 class="card-title text-white">${result.photographer}</h5>
+                            <button  type="button" class="btn btn-light mx-1"><i class="bi bi-box-arrow-down"></i></button>
+                         </div>
+                         </div>
+                        </div>
+                     </div>
+                  `
+
+
+            })
+            for (let i = 0; i < renderedResult.length; i++) {
+                const element = renderedResult[i];
+
+                console.log(i % 3)
+                if (i % 3 === 0)
+                    columnA.innerHTML += element
+                else if (i % 3 === 1)
+                    columnB.innerHTML += element
+
+                else
+                    columnC.innerHTML += element
+
+            }
+        })
         .catch(error => console.log('error', error));
 }
-
-getImages("https://api.pexels.com/v1/search?query=japan")
+getImg("https://api.pexels.com/v1/search/?page=3&per_page=50&query=japan")

@@ -26,7 +26,7 @@
 
 
 
-          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImages(readInputValue())"><i
+          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImg(readInputValue())"><i
               class="bi bi-search"></i></button>
         </form>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -99,9 +99,9 @@
             data-bs-toggle="dropdown" aria-expanded="false">
             All Orientations </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Horizontal</a></li>
-              <li><a class="dropdown-item" href="#">Vertical</a></li>
-              <li><a class="dropdown-item" href="#">Square</a></li>
+              <li><button id="horizontal" type="button" class="dropdown-item" >Horizontal</button></li>
+              <li><button id="vertical" type="button" class="dropdown-item" >Vertical</button></li>
+              <li><button id="square" type="button" class="dropdown-item" >Square</button></li>
               
             </ul>
         </div>
