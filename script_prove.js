@@ -1,17 +1,16 @@
 // ---------funzione che mostra i risultati della chiamata----------
 function displayImages(result) {
-    searchTitle.innerText = ''
-    searchTitle.innerText = inputSearch.value.toUpperCase()
-    cardRow.innerHTML = ''
-    // columnA.innerText = ''
-    // columnB.innerText = ''
-    // columnC.innerText = ''
+  searchTitle.innerText = '';
+  searchTitle.innerText = inputSearch.value.toUpperCase();
+  cardRow.innerHTML = '';
+  // columnA.innerText = ''
+  // columnB.innerText = ''
+  // columnC.innerText = ''
 
-    imagesResult = result.photos
+  imagesResult = result.photos;
 
-
-    const renderedResult = imagesResult.map(result => {
-        return /*html*/`
+  const renderedResult = imagesResult.map((result) => {
+    return /*html*/ `
 
              <div class="card">
                <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
@@ -23,58 +22,41 @@ function displayImages(result) {
                         </div>
                </div>
              </div>
-          `
-
-
-    })
-    cardRow.innerHTML += renderedResult.join('')
-    // columnA.innerHTML += renderedResult.join('')
-    // columnB.innerHTML += image.join('')
-    // columnC.innerHTML += image.join('')
-
-    // console.log(imagesResult)
-
+          `;
+  });
+  cardRow.innerHTML += renderedResult.join('');
 }
-
 
 // ------------funzione di chiamata API che prende il paramentro dall'input della ricerca
 function getImages(url) {
-
-    fetch(url, {
-        headers: {
-            "Authorization": "U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq"
-        }
-    })
-        .then(response => response.json())
-        .then(displayImages)
-        .catch(error => console.log('error', error));
+  fetch(url, {
+    headers: {
+      Authorization: 'U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq',
+    },
+  })
+    .then((response) => response.json())
+    .then(displayImages)
+    .catch((error) => console.log('error', error));
 }
-
-
-
-
 
 // ------------------------------PROVE CHIAMATE PER VISUALIZZARE TRE COLONNE DI RISULTATI DIVERSI
 
 function getImagesColumnA(url) {
+  fetch(url, {
+    headers: {
+      Authorization: 'U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq',
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      searchTitle.innerText = '';
+      searchTitle.innerText = inputSearch.value.toUpperCase();
+      columnA.innerText = '';
 
-    fetch(url, {
-        headers: {
-            "Authorization": "U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq"
-        }
-    })
-        .then(response => response.json())
-        .then((result) => {
-            searchTitle.innerText = ''
-            searchTitle.innerText = inputSearch.value.toUpperCase()
-            columnA.innerText = ''
+      imagesResult = result.photos;
 
-
-            imagesResult = result.photos
-
-
-            const renderedResult = imagesResult.map(result => {
-                return /*html*/`
+      const renderedResult = imagesResult.map((result) => {
+        return /*html*/ `
         
                      <div class="card">
                        <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
@@ -86,33 +68,28 @@ function getImagesColumnA(url) {
                         </div>
                        </div>
                      </div>
-                  `
-
-
-            })
-            columnA.innerHTML += renderedResult.join('')
-        })
-        .catch(error => console.log('error', error));
+                  `;
+      });
+      columnA.innerHTML += renderedResult.join('');
+    })
+    .catch((error) => console.log('error', error));
 }
 function getImagesColumnB(url) {
+  fetch(url, {
+    headers: {
+      Authorization: 'U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq',
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      searchTitle.innerText = '';
+      searchTitle.innerText = inputSearch.value.toUpperCase();
+      columnB.innerText = '';
 
-    fetch(url, {
-        headers: {
-            "Authorization": "U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq"
-        }
-    })
-        .then(response => response.json())
-        .then((result) => {
-            searchTitle.innerText = ''
-            searchTitle.innerText = inputSearch.value.toUpperCase()
-            columnB.innerText = ''
+      imagesResult = result.photos;
 
-
-            imagesResult = result.photos
-
-
-            const renderedResult = imagesResult.map(result => {
-                return /*html*/`
+      const renderedResult = imagesResult.map((result) => {
+        return /*html*/ `
         
                      <div class="card">
                        <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
@@ -124,33 +101,28 @@ function getImagesColumnB(url) {
                         </div>
                        </div>
                      </div>
-                  `
-
-
-            })
-            columnB.innerHTML += renderedResult.join('')
-        })
-        .catch(error => console.log('error', error));
+                  `;
+      });
+      columnB.innerHTML += renderedResult.join('');
+    })
+    .catch((error) => console.log('error', error));
 }
 function getImagesColumnC(url) {
+  fetch(url, {
+    headers: {
+      Authorization: 'U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq',
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      searchTitle.innerText = '';
+      searchTitle.innerText = inputSearch.value.toUpperCase();
+      columnC.innerText = '';
 
-    fetch(url, {
-        headers: {
-            "Authorization": "U5PLOUXncn0NuIT9U377ZYNAd90KP3DUmGHi3M4MPXQ2dkE1Yog1i8Eq"
-        }
-    })
-        .then(response => response.json())
-        .then((result) => {
-            searchTitle.innerText = ''
-            searchTitle.innerText = inputSearch.value.toUpperCase()
-            columnC.innerText = ''
+      imagesResult = result.photos;
 
-
-            imagesResult = result.photos
-
-
-            const renderedResult = imagesResult.map(result => {
-                return /*html*/`
+      const renderedResult = imagesResult.map((result) => {
+        return /*html*/ `
         
                      <div class="card">
                        <img  src="${result.src.large}" class="card-img" alt="${result.alt}">
@@ -162,15 +134,12 @@ function getImagesColumnC(url) {
                         </div>
                      </div>
                      </div>
-                  `
-
-
-            })
-            columnC.innerHTML += renderedResult.join('')
-        })
-        .catch(error => console.log('error', error));
+                  `;
+      });
+      columnC.innerHTML += renderedResult.join('');
+    })
+    .catch((error) => console.log('error', error));
 }
-
 
 // getImagesColumnA("https://api.pexels.com/v1/search/?page=1&per_page=50&query=japan")
 // getImagesColumnB("https://api.pexels.com/v1/search/?page=2&per_page=50&query=japan")

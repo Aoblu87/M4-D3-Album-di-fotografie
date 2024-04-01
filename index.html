@@ -1,159 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Photo Album</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Photo Album</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <body>
+    <header class="py-3 mb-3 border-bottom">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid justify-content-xl-center">
+          <a class="navbar-brand" href="#">
+            <img
+              src="assets/pexels-seeklogo.com.svg"
+              alt="Logo"
+              width="30"
+              height="24"
+              class="d-inline-block align-text-top"
+            />
+            Pexels
+          </a>
+          <form class="d-flex col-7">
+            <input
+              id="inputSearch"
+              class="form-control me-2"
+              type="text"
+              placeholder="Cerca foto gratuite"
+              aria-label="Search"
+              id="floatingSearch"
+            />
 
-<body>
-  <header class="py-3 mb-3 border-bottom">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid justify-content-center">
-        <a class="navbar-brand" href="#">
-          <img src="assets/pexels-seeklogo.com.svg" alt="Logo" width="30" height="24"
-            class="d-inline-block align-text-top">
-          Pexels
-        </a>
-        <form class="d-flex col-7">
-          <input id="inputSearch" class="form-control me-2" type="text" placeholder="Cerca foto gratuite"
-            aria-label="Search" id="floatingSearch">
-
-
-
-          <button id="buttonSearch" class="btn btn-outline" type="button" onclick="getImg(readInputValue())"><i
-              class="bi bi-search"></i></button>
-        </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Esplora
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Scopri foto</a></li>
-                <li><a class="dropdown-item" href="#">Ricerche popolari</a></li>
-                <li><a class="dropdown-item" href="#">Classifica</a></li>
-                <li><a class="dropdown-item" href="#">Concorsi</a></li>
-                <li><a class="dropdown-item" href="#">Video gratuiti</a></li>
-                <li><a class="dropdown-item" href="#">Blog di Pexels</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Licenza</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Carica</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#"><i class="bi bi-three-dots"></i></a>
-            </li>
-
-
-          </ul>
-        </div>
-        <button type="button" class="btn btn-success">Partecipa</button>
-
-      </div>
-    </nav>
-    </div>
-  </header>
-
-
-  <main>
-
-    <div class="container">
-      <div class="row">
-        <div class="col">
-
-          <h3 id="searchTitle">Discover</h3>
-        </div>
-      </div>
-      <div class="row my-md-5">
-        <div class="col-md-10">
-          <button type="button" class="btn-filters btn btn-dark">Foto</button>
-          <button type="button" class="btn-filters btn btn-dark">Video</button>
-          <button type="button" class="btn-filters btn btn-dark">Utenti</button>
-
-        </div>
-        <div class="col-md-2 justify-content-md-center">
-          <button type="button" class="btn btn-light dropdown-toggle">
-            <i class="bi bi-filter"></i>Filtri </button>
-
-        </div>
-      </div>
-      <div class="row mb-4">
-
-        <div class="col-md-4 btn-group">
-          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            All Orientations </button>
-            <ul class="dropdown-menu">
-              <li><button id="horizontal" type="button" class="dropdown-item" >Horizontal</button></li>
-              <li><button id="vertical" type="button" class="dropdown-item" >Vertical</button></li>
-              <li><button id="square" type="button" class="dropdown-item" >Square</button></li>
-              
+            <button
+              id="buttonSearch"
+              class="btn btn-outline"
+              type="button"
+              onclick="getImg(readInputValue())"
+            >
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown d-none d-xl-block">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Esplora
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Scopri foto</a></li>
+                  <li>
+                    <a class="dropdown-item" href="#">Ricerche popolari</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Classifica</a></li>
+                  <li><a class="dropdown-item" href="#">Concorsi</a></li>
+                  <li><a class="dropdown-item" href="#">Video gratuiti</a></li>
+                  <li><a class="dropdown-item" href="#">Blog di Pexels</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Licenza</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Carica</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#"
+                  ><i class="bi bi-three-dots"></i
+                ></a>
+              </li>
             </ul>
+          </div>
+          <button type="button" class="btn btn-success d-none d-lg-block">
+            Partecipa
+          </button>
         </div>
-        <div class="col-md-4 btn-group">
-          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            All Sizes </button>
-          <ul class="dropdown-menu">
-            ...
-          </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3 id="searchTitle">Discover</h3>
+          </div>
         </div>
-        <div class="col-md-4 btn-group">
-          <button class="btn btn-transparent btn-lg dropdown-toggle border border-circle" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Enter Ex Code </button>
-          <ul class="dropdown-menu">
-            ...
-          </ul>
+        <div class="row my-md-5">
+          <div class="col-md-10">
+            <button type="button" class="btn-filters btn btn-dark">Foto</button>
+            <button type="button" class="btn-filters btn btn-dark">
+              Video
+            </button>
+            <button type="button" class="btn-filters btn btn-dark">
+              Utenti
+            </button>
+          </div>
+          <div class="col-md-2 justify-content-md-center">
+            <button type="button" class="btn btn-light dropdown-toggle">
+              <i class="bi bi-filter"></i>Filtri
+            </button>
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col-md-4 btn-group">
+            <button
+              class="btn btn-transparent btn-lg dropdown-toggle border border-circle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              All Orientations
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <button id="horizontal" type="button" class="dropdown-item">
+                  Horizontal
+                </button>
+              </li>
+              <li>
+                <button id="vertical" type="button" class="dropdown-item">
+                  Vertical
+                </button>
+              </li>
+              <li>
+                <button id="square" type="button" class="dropdown-item">
+                  Square
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 btn-group">
+            <button
+              class="btn btn-transparent btn-lg dropdown-toggle border border-circle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              All Sizes
+            </button>
+            <ul class="dropdown-menu">
+              ...
+            </ul>
+          </div>
+          <div class="col-md-4 btn-group">
+            <button
+              class="btn btn-transparent btn-lg dropdown-toggle border border-circle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Enter Ex Code
+            </button>
+            <ul class="dropdown-menu">
+              ...
+            </ul>
+          </div>
+        </div>
+        <div
+          id="cardRow"
+          class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
+        >
+          <div id="columnA" class="column"></div>
+          <div id="columnB" class="column"></div>
+          <div id="columnC" class="column"></div>
         </div>
       </div>
-      <div id="cardRow" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div id="columnA" class="column"></div>
-        <div id="columnB" class="column"></div>
-        <div id="columnC" class="column"></div>
+    </main>
 
-
-      </div>
-    </div>
-  </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-  <script src="script.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
 </html>
